@@ -1,0 +1,19 @@
+{
+  "type": "bar",
+  "data": {
+    "datasets": [{ "data": [413, 138,115, 76, 34 , 30 , 29 , 27 , 25, 25, 285] }],
+    "labels": [
+      "United States",
+      "United Kingdom",
+      "Germany",
+      "France",
+      "Sweden",
+      "Russia",
+      "Japan",
+      "Canada",
+      "Switzerland",
+      "Austria",
+      "Others"
+    ]
+  }
+}
