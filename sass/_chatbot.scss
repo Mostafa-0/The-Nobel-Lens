@@ -1,0 +1,282 @@
+// chatbot colors
+$background: #ffffff;
+$outline-color: #195272;
+$face-color: #e1eff4;
+$tongue-color: #f9bbbb;
+$inner-bg: #cedbdd;
+
+.chat {
+  position: fixed;
+  bottom: 10px;
+  right: 0;
+  z-index: 50;
+  width: 100%;
+  max-width: 420px;
+  @media only screen and (min-width: 840px) {
+    margin-right: 0.8em;
+  }
+}
+
+#chatbot-chat {
+  overflow: auto;
+}
+
+.chat-container {
+  display: none;
+  position: relative;
+  background: linear-gradient(
+    to bottom right,
+    hsl(202, 64%, 20%),
+    $outline-color
+  );
+  height: 400px;
+  border-radius: 8px;
+  padding: 1rem;
+  padding-top: 2.2rem;
+  grid-template-rows: 10fr 1fr;
+
+  .input-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    input {
+      width: 100%;
+      border-radius: 4px;
+    }
+
+    button {
+      background: whitesmoke;
+      color: black;
+      padding: 0.4em 1em;
+      border-radius: 4px;
+    }
+
+    button:hover {
+      background: black;
+      color: whitesmoke;
+      transition: all 200ms ease-in-out;
+    }
+  }
+
+  p {
+    max-width: 95%;
+    background-color: whitesmoke;
+    color: black;
+    padding: 0.6rem 1rem;
+    margin-right: 0.5rem;
+    font-size: 1rem;
+    border-radius: 8px;
+  }
+}
+
+.chat-container::before {
+  content: "";
+  width: 0;
+  height: 0;
+  position: absolute;
+  bottom: -12px;
+  right: 15%;
+  border-bottom: 20px solid transparent;
+  border-left: 20px solid transparent;
+  border-right: 20px solid $outline-color;
+}
+
+.close-btn {
+  position: absolute;
+  right: 5px;
+  top: 8px;
+}
+
+.chatbot-active {
+  display: grid;
+}
+
+#chatbot-chat::-webkit-scrollbar {
+  width: 0.4vw;
+  height: 1vh;
+}
+
+#chatbot-chat::-webkit-scrollbar-thumb {
+  background-color: whitesmoke;
+  border-radius: 60px;
+}
+
+#chatbot-chat::-webkit-scrollbar-track {
+  margin: 26px;
+}
+
+// Chatbot drawing
+.chatbot-btn {
+  float: right;
+  margin-top: 0.4rem;
+  margin-right: -1em;
+  margin-bottom: -0.8em;
+}
+
+.cute-robot-v1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-origin: center;
+  transform: scale(0.5);
+  @media only screen and (min-width: 840px) {
+    transform: scale(0.64);
+  }
+
+  .circle-bg {
+    background: $inner-bg;
+    width: 87.5px;
+    height: 87.5px;
+    border-radius: 100%;
+    border: 2.8px solid $outline-color;
+    position: relative;
+
+    &:after {
+      content: "";
+      position: absolute;
+      z-index: 2;
+      height: 35%;
+      width: 35%;
+      top: -1px;
+      left: 0;
+      border-radius: 100%;
+      border-bottom: 3.5px solid $outline-color;
+    }
+
+    &:hover {
+      .robot-face {
+        top: 14px !important;
+      }
+
+      .eyes {
+        top: 10.5px !important;
+      }
+
+      .mouth {
+        background: $outline-color;
+        border: none;
+        clip-path: polygon(0% 30%, 100% 30%, 100% 100%, 0% 100%);
+
+        &:after {
+          content: "";
+          position: absolute;
+          height: 28%;
+          width: 28%;
+          bottom: -10.5%;
+          left: 50%;
+          transform: translateX(-50%);
+          background: $tongue-color;
+          border-radius: 100%;
+        }
+      }
+    }
+
+    .robot-head {
+      height: 70px;
+      width: 70px;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: -7px;
+      border: 2.8px solid $outline-color;
+      border-radius: 29.75px/21px;
+      background: $background;
+      z-index: 4;
+      &:after {
+        content: "";
+        position: absolute;
+        top: -10.5px;
+        height: 10.5px;
+        width: 3.5px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: $outline-color;
+      }
+      &:before {
+        content: "";
+        position: absolute;
+        top: -21px;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 7px;
+        width: 7px;
+        background: $inner-bg;
+        border: 2.8px solid $outline-color;
+        border-radius: 35%;
+      }
+
+      .robot-face {
+        height: 42px;
+        width: 56px;
+        background: $inner-bg;
+        position: absolute;
+        top: 15.75px;
+        left: 50%;
+        transform: translateX(-50%);
+        border: 2.8px solid $outline-color;
+        transition: all 200ms;
+        border-radius: 15.75px;
+
+        .eyes {
+          height: 7px;
+          width: 7px;
+          background: $outline-color;
+          border-radius: 35%;
+          position: absolute;
+          transition: all 200ms;
+          top: 15.75px;
+
+          &.left {
+            left: 10.5px;
+          }
+          &.right {
+            right: 10.5px;
+          }
+        }
+
+        .mouth {
+          height: 15.75px;
+          width: 15.75px;
+          border-radius: 35%;
+          border: 2.8px solid transparent;
+          border-bottom-color: $outline-color;
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          top: 18.75px;
+          overflow: hidden;
+        }
+      }
+    }
+
+    .robot-ear {
+      position: absolute;
+      height: 35px;
+      width: 35px;
+      border-radius: 35%;
+      background: $background;
+      border: 2.8px solid $outline-color;
+      z-index: 3;
+      top: 10.5px;
+
+      &.left {
+        left: -7px;
+      }
+      &.right {
+        right: -7px;
+      }
+    }
+
+    .robot-body {
+      height: 17.5px;
+      width: 35px;
+      border: 2.8px solid $outline-color;
+      background: $background;
+      position: absolute;
+      bottom: -1.75px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 8.75px 8.75px 10.5px 10.5px;
+    }
+  }
+}

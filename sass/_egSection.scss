@@ -1,0 +1,62 @@
+.egypt-winners {
+  h4 {
+    font-size: min(2.4em, 6.2vw);
+    margin: 0;
+  }
+
+  .nobel-winner {
+    display: grid;
+    margin-bottom: 2em;
+  }
+
+  img {
+    width: 100%;
+    aspect-ratio: 1/1;
+  }
+
+  .eg-img-container {
+    position: relative;
+  }
+
+  .img-title {
+    position: absolute;
+    width: max-content;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(160, 0, 0);
+    color: white;
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0.4em 1.4em;
+    opacity: 0;
+    transition: 0.5s ease;
+  }
+
+  .eg-img-container:hover img {
+    opacity: 0.5;
+  }
+
+  .eg-img-container:hover .img-title {
+    opacity: 1;
+  }
+
+  @media only screen and (min-width: 700px) {
+    .nobel-winner {
+      display: flex;
+      align-items: center;
+      gap: 2em;
+      padding-block: 2em;
+
+      .eg-img-container {
+        margin: 0;
+      }
+
+      img {
+        aspect-ratio: unset;
+        width: 180px;
+        border-radius: 20px;
+      }
+    }
+  }
+}

@@ -1,0 +1,141 @@
+/* 
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.04), 0 6px 20px 0 rgba(0, 0, 0, 0.08); Black Box Shadow
+box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.1); Grey Box Shadow
+*/
+
+/* ------------ Box Shadows -------------- */
+// General Cards
+.card {
+  position: relative;
+  box-shadow: 0 4px 8px 0 hsla(34, 36%, 72%, 0.2),
+    0 6px 20px 0 hsla(34, 36%, 72%, 0.1);
+}
+
+.card:hover {
+  box-shadow: 0 4px 8px 0 hsla(34, 36%, 72%, 0.3),
+    0 6px 20px 0 hsla(34, 36%, 72%, 0.15);
+  transition: opacity 200ms ease-out;
+}
+
+// IEEE Cards
+.ieee-card {
+  box-shadow: 0 4px 8px 0 rgba(0, 187, 255, 0.2),
+    0 6px 20px 0 rgba(0, 187, 255, 0.1);
+  position: relative;
+}
+
+.ieee-card:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 187, 255, 0.3),
+    0 6px 20px 0 rgba(0, 187, 255, 0.15);
+  transition: opacity 200ms ease-out;
+}
+
+// Egypt Cards
+.egypt-card {
+  box-shadow: 0 4px 8px 0 rgba(255, 0, 0, 0.2),
+    0 6px 20px 0 rgba(255, 0, 0, 0.1);
+}
+
+.egypt-card:hover {
+  box-shadow: 0 4px 8px 0 rgba(255, 0, 0, 0.3),
+    0 6px 20px 0 rgba(255, 0, 0, 0.15);
+}
+
+/* ------------ Mouse trailer -------------- */
+.card:hover::before {
+  opacity: 1;
+}
+
+.card::before,
+.card::after {
+  border-radius: inherit;
+  content: "";
+  height: 100%;
+  left: 0px;
+  opacity: 0.3;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  z-index: 3;
+  transition: opacity 400ms ease-out;
+}
+
+// General Cards
+// Static gradient
+.card::after {
+  background: radial-gradient(
+    2200px circle at 100px 100px,
+    hsla(34, 36%, 72%, 0.3),
+    transparent 40%
+  );
+}
+
+// Dynamic gradient
+.card::before {
+  background: radial-gradient(
+    2200px circle at var(--mouse-x) var(--mouse-y),
+    hsla(34, 36%, 72%, 0.15),
+    transparent 40%
+  );
+}
+
+// IEEE Cards
+.ieee-card::after {
+  background: radial-gradient(
+    2200px circle at 100px 100px,
+    rgba(0, 187, 255, 0.3),
+    transparent 40%
+  );
+}
+
+.ieee-card::before {
+  background: radial-gradient(
+    2200px circle at var(--mouse-x) var(--mouse-y),
+    rgba(0, 187, 255, 0.1),
+    transparent 40%
+  );
+}
+
+// Egypt Cards
+.egypt-card::after {
+  background: radial-gradient(
+    2200px circle at 100px 100px,
+    rgba(255, 0, 0, 0.18),
+    transparent 40%
+  );
+}
+
+.egypt-card::before {
+  background: radial-gradient(
+    2200px circle at var(--mouse-x) var(--mouse-y),
+    rgba(255, 0, 0, 0.1),
+    transparent 40%
+  );
+}
+
+// For Light Mode
+.light-mode {
+  .card::before {
+    background: radial-gradient(
+      2200px circle at var(--mouse-x) var(--mouse-y),
+      hsla(35, 14%, 45%, 0.3),
+      transparent 40%
+    );
+  }
+
+  .ieee-card::before {
+    background: radial-gradient(
+      2200px circle at var(--mouse-x) var(--mouse-y),
+      rgba(0, 126, 171, 0.2),
+      transparent 40%
+    );
+  }
+
+  .egypt-card::before {
+    background: radial-gradient(
+      2200px circle at var(--mouse-x) var(--mouse-y),
+      rgba(184, 0, 0, 0.2),
+      transparent 40%
+    );
+  }
+}

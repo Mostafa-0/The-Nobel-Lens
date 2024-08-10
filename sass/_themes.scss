@@ -1,0 +1,116 @@
+$primary-color: #242424;
+$secondary-color: #777;
+$background-color: #fff;
+$shadow-color: rgba(0, 0, 0, 0.2);
+
+.theme-toggle label {
+  width: 85px;
+  height: 35px;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: block;
+  z-index: 999;
+  background: #ebebeb;
+  border-radius: 17.5px;
+  box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.4),
+    inset 0px -5px 15px rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: 0.3s;
+
+  &:after {
+    content: "";
+    width: 31px;
+    height: 31px;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    background: linear-gradient(180deg, #ffcc89, #d8860b);
+    border-radius: 180px;
+    box-shadow: 0px 5px 10px $shadow-color;
+    transition: 0.3s;
+  }
+}
+
+.theme-toggle input {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+.theme-toggle input:checked + label {
+  background: $primary-color;
+
+  &:after {
+    left: 83px;
+    transform: translateX(-100%);
+    background: linear-gradient(180deg, #777, #3a3a3a);
+  }
+}
+
+.theme-toggle label svg {
+  position: absolute;
+  width: 22px;
+  top: 6.5px;
+  z-index: 100;
+
+  &.sun {
+    left: 6.5px;
+    fill: $background-color;
+    transition: 0.3s;
+  }
+
+  &.moon {
+    left: 56.5px;
+    fill: #7e7e7e;
+    transition: 0.3s;
+  }
+}
+
+.theme-toggle input:checked + label svg.sun {
+  fill: #7e7e7e;
+}
+
+.theme-toggle input:checked + label svg.moon {
+  fill: $background-color;
+}
+
+// Dark mode styles
+.dark-mode {
+  background-color: black;
+  color: #f1f5f9;
+
+  /* Add more styles for dark mode */
+  .card {
+    background-color: black;
+  }
+  .links button {
+    background-color: black;
+    color: white;
+  }
+  .links button:hover {
+    background-color: white;
+    color: black;
+    transition: all 250ms ease-in-out;
+  }
+}
+
+// Light mode styles
+.light-mode {
+  background-color: #d0d0d0;
+  color: #2f2f2f;
+
+  /* Add more styles for light mode */
+  .card {
+    background-color: #e2e2e2;
+  }
+  .links button {
+    background-color: #e3e1df;
+    color: black;
+  }
+  .links button:hover {
+    background-color: black;
+    color: #dddddd;
+    transition: all 250ms ease-in-out;
+  }
+}

@@ -1,0 +1,126 @@
+@use "./hero";
+@use "./about";
+@use "./themes";
+@use "./links";
+@use "./card";
+@use "./egSection";
+@use "./footer";
+@use "./hoverEffect";
+@use "./chatbot";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  @media screen and (min-width: 840px) {
+    font-size: 17px;
+  }
+}
+
+main {
+  padding: 3vw 4vw;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+}
+
+h1 {
+  font-size: min(4.1rem, 8vw);
+  margin-block: 0.7rem 0;
+  line-height: 1;
+}
+
+h2,
+h3 {
+  font-size: min(2.6rem, 6.4vw);
+  line-height: 1.2;
+}
+
+p {
+  line-height: 1.4;
+  margin-bottom: 0.8em;
+}
+
+button {
+  background: none;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+input {
+  border: none;
+  outline: none;
+  padding-inline: 0.5em;
+}
+
+hr {
+  display: block;
+  width: 70%;
+  height: 1px;
+  margin: 3rem auto 0rem auto;
+  border: none;
+  outline: none;
+  background: linear-gradient(90deg, transparent, white, transparent);
+}
+
+.intro {
+  padding-left: 1em;
+  margin-top: 2rem;
+
+  svg {
+    width: 1.2em;
+    height: 1.2em;
+  }
+}
+
+.ieee-intro {
+  border-left: 2px solid rgba(0, 187, 255, 0.3);
+
+  svg {
+    margin-left: -0.4em;
+    margin-right: -0.4em;
+    margin-bottom: -0.2em;
+
+    .isometric_acht {
+      fill: #06b6d4;
+    }
+
+    .isometric_negen {
+      fill: #0284c7;
+    }
+  }
+}
+
+.egypt-intro {
+  border-left: 2px solid rgba(255, 0, 0, 0.3);
+
+  svg {
+    margin-bottom: -0.3em;
+  }
+}
+
+.map-container {
+  overflow: hidden;
+}
+
+#map {
+  width: 100%;
+  max-width: 1000px;
+  margin: auto;
+}

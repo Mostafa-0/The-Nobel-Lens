@@ -1,0 +1,44 @@
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2vw;
+  padding: 1.2vw 4vw;
+  color: whitesmoke;
+  position: relative;
+
+  div.left {
+    display: flex;
+    align-items: center;
+  }
+
+  h4 {
+    font-size: 1.4em;
+    margin: 0;
+    line-height: 1;
+  }
+
+  .subtitle {
+    font-size: min(0.8em, 2.2vw);
+  }
+
+  .footer-logo {
+    max-width: 40px;
+    margin: 1em;
+    margin-left: 0;
+  }
+
+  small {
+    font-size: 0.7em;
+  }
+}
+
+.dark-mode footer {
+  border-top: 1px solid #333;
+}
+
+.light-mode footer {
+  border-top: 1px solid #bbb;
+  color: black;
+}

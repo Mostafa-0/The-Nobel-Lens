@@ -1,0 +1,38 @@
+.card {
+  min-height: 600px;
+  margin-block: max(2.6em, 6vw);
+  padding: max(1.6rem, 4.6vw);
+  overflow: hidden;
+  border-radius: 32px;
+  background-color: black;
+}
+
+.card-header{
+  width: 100%;
+}
+
+.chart-container {
+  margin: auto;
+  min-height: 350px;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+}
+
+.card:nth-of-type(odd){
+  .card-header{
+    order: 2;
+  }
+  .chart-container{
+    order: 1;
+  }
+}
+
+@media (min-width: 840px) {
+  .card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+    gap: 3vw;
+  }
+}
