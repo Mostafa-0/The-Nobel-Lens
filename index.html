@@ -25,7 +25,7 @@
         achievements in science, literature, and peace.</p>
       <p>Explore interactive charts, graphs, and insightful analyses to uncover hidden patterns and gain a deeper
         understanding of Nobel Prize winners across all fields.</p>
-      <button onclick="location.href='#about'" class="hero-btn">Explore Now!</button>
+      <button class="hero-btn">Explore Now!</button>
     </div>
   </section>
 
@@ -602,6 +602,12 @@
     <small>&copy; Copyright 2024, All Rights Reserved</small>
   </footer>
 
+  <script>
+    const heroBtn = document.querySelector('.hero-btn');
+    heroBtn.addEventListener('click', () => {
+      document.getElementById("about").scrollIntoView()
+    })
+  </script>
   <script src="js/hoverEffect.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
